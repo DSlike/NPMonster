@@ -1,3 +1,5 @@
+const path = require('path');
+
 const electron = require('electron'),
   {
     app,
@@ -9,12 +11,20 @@ app.on("ready", function() {
   var mainWindow = new BrowserWindow({
     width: 1000,
     height: 800,
+    minWidth: 400,
+    minHeight: 400,
     transparent: true,
     frame: true,
-    titleBarStyle : 'hidden-inset',
-		vibrancy: 'dark'
+    show: true,
+    resizable: true,
+    titleBarStyle: 'hidden-inset',
+    vibrancy: 'dark',
+    icon: path.join(__dirname, 'app/imgs/icon.png'),
+    title:"NPMonster"
   });
   mainWindow.loadURL(`file://${__dirname}/app/index.html`);
+
+  mainWindow.setTitle("NPMonster");
 
   const cmd = require("node-cmd");
 
@@ -23,10 +33,10 @@ app.on("ready", function() {
   });
 
   cmd.get(
-        `cd
-        pwd`,
-        function(err, data, stderr){
-            // console.log('the current working dir is : ',data)
-        }
-    );
+    `cd
+    pwd`,
+    function(err, data, stderr) {
+      // console.log('the current working dir is : ',data)
+    }
+  );
 });

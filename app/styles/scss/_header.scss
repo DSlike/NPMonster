@@ -1,0 +1,16 @@
+section#header{
+  height: 38px;
+  background-color: rgba($dark, 0);
+  background-image: url('../imgs/icon.png');
+  background-position: center center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  transition: .3s;
+
+  -ms-overflow-style: scrollbar;
+  -webkit-app-region:drag;
+
+  &:hover{
+    background-color: rgba($dark, .5);
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 
-// import Header from './components/header';
+import Nav from './controls/navBar';
+import MainSection from './controls/mainSection';
 // import Content from './components/content';
 // import Footer from './components/footer';
 // import Background from './components/background';
@@ -13,9 +14,8 @@ export default class App extends React.Component {
   render() {
     return (
       <section id="application">
-        <section id="applicationMain">
-
-        </section>
+        <Nav />
+        <MainSection />
       </section>
     );
   }

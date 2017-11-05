@@ -9,8 +9,8 @@ app.commandLine.appendSwitch('enable-experimental-web-platform-features');
 app.commandLine.appendSwitch('enable-transparent-visuals');
 app.on("ready", function() {
   var mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    width: 800,
+    height: 500,
     minWidth: 400,
     minHeight: 400,
     transparent: true,
@@ -28,8 +28,14 @@ app.on("ready", function() {
 
   const cmd = require("node-cmd");
 
-  cmd.get("npm search express", function(err, data, stderr) {
-    // console.log(data);
+  cmd.get("npm view node", (err, node) => {
+
+    var v = node;
+    console.log(v.name);
+
+    cmd.get("node -v", (err, data) => {
+      // console.log(v+" "+data);
+    })
   });
 
   cmd.get(

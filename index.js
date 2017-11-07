@@ -25,24 +25,4 @@ app.on('ready', function() {
   mainWindow.loadURL(`file://${__dirname}/app/index.html`);
 
   mainWindow.setTitle('NPMonster');
-
-  // const cmd = require('node-cmd');
-
-  // cmd.get('npm view node', (err, node) => {
-  //
-  //   var v = node;
-  //   console.log(v.name);
-
-  // cmd.get('open .', (err, data) => {
-  //   console.log(data);
-  // });
-  // });
-
-  // cmd.get(
-  //   `cd
-  //   pwd`,
-  //   function(err, data, stderr) {
-  //     // console.log('the current working dir is : ',data)
-  //   }
-  // );
 });

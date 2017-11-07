@@ -1,13 +1,12 @@
 section#projectPage{
   display: flex;
   flex-direction: column;
-  min-width: 600px;
+  // min-width: 600px;
   min-height: 100%;
   width: 100%;
   background-color: rgba($white, 1);
+  box-shadow: 0 0 15px rgba(0,0,0,.3);
   color: $dark;
-
-  // justify-content: center;
 
   .project-info{
     display: inherit;

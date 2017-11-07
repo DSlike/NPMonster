@@ -4,8 +4,10 @@
 @import 'mainSection';
 
 body, html{
+  overflow: hidden;
   margin: 0px;
   padding: 0px;
+  max-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
   *{
@@ -16,6 +18,7 @@ body, html{
 #application{
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   height: 100vh;
 
   justify-content: space-between;

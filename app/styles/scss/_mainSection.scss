@@ -11,12 +11,12 @@ section#projectPage{
 
   .project-info{
     display: inherit;
-    flex-direction: row;
+    flex-direction: column;
     box-sizing: border-box;
     padding: 1em;
 
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: flex-end;
 
     h1{
       margin: 0px;
@@ -25,6 +25,7 @@ section#projectPage{
     }
 
     .version, .author{
+      display: block;
       margin: 0 1em;
       color:rgba($dark, .5);
     }

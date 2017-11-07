@@ -13,18 +13,10 @@
 
 <script>
 const cmd = require("node-cmd");
-const npmRun = require("npm-run");
 
-// cmd.get("npm view node", (err, node) => {
-//
-//   eval('var v='+node+'');
-//   console.log(v);
-//
-//   cmd.get("node -v", (err, data) => {
-//     // console.log(v+" "+data);
-//   })
-// });
-npmRun.exec('npm view node', {cwd: __dirname + '/'}, function (err, stdout, stderr) {
-  
-})
+cmd.get("npm view node", (err, node) => {
+  var v = node.replace(node.match(/[.]{3} \d{3,1000} more items/gi), "");
+  eval('v='+v+'');
+  console.log(v);
+});
 </script>

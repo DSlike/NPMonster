@@ -28,4 +28,34 @@ nav{
       }
     }
   }
+
+  .project-link{
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 1em;
+    width: 100%;
+    box-shadow: 0 -1px 0 rgba($gray, .5) inset;
+    color: $white;
+    white-space: nowrap;
+    transition: .3s;
+
+    &:hover{
+      box-shadow: 0 -60px 0 $white inset;
+      color:$accent;
+    }
+
+    &.active{
+      &:after{
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        width: 4px;
+        height: 100%;
+        background-color: $accent;
+        content: '';
+        transform: translateY(-50%);
+      }
+    }
+  }
 }

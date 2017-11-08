@@ -4,7 +4,11 @@ export default class navBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: []
+      projects: [
+        {path: '', name: 'testProject'},
+        {path: '', name: 'testProjectWithReallyVeryLongName'},
+        {path: '', name: 'test Project With Really Very Long Name'},
+      ]
     };
   }
 
@@ -27,9 +31,15 @@ export default class navBar extends React.Component {
     var a = this.state.projects;
     a.push({path: project.path, name: project.name});
     this.setState({projects: a});
-    console.log(this.state);
   }
   render() {
+    const projectsList = this.state.projects.map((el,i)=> {
+      return (
+        <div className='project-link'
+          onClick={(e)=>this.props.openProject(e, el)}
+          key={i}>{el.name}</div>
+      );
+    });
     return (<nav>
       <input type='file'
         id='openProject'
@@ -38,6 +48,7 @@ export default class navBar extends React.Component {
         className='open-project'
         ref='x'/>
       <label htmlFor='openProject'>+ Add project</label>
+      {projectsList}
     </nav>);
   }
 }

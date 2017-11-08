@@ -12,4 +12,4 @@ ReactDOM.render((
   <BrowserRouter>
     <App />
   </BrowserRouter>
-), appRootDOM)
+), appRootDOM);

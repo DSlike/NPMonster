@@ -1,7 +1,8 @@
 nav{
   display: flex;
   flex-direction: column;
-  min-width: 300px;
+  width: 300px;
+  transition: .3s;
 
   justify-content: flex-start;
   align-items: flex-start;
@@ -52,19 +53,28 @@ nav{
     &:hover{
       background-color: rgba($white, .2);
       box-shadow: 0 0 0 rgba($white, .2) inset;
-      // color:$accent;
+
+      &.active:after{
+        background-color: $white;
+      }
+    }
+
+    &:after{
+      position: absolute;
+      top: 0px;
+      right: -10px;
+      width: 5px;
+      height: 100%;
+      background-color: rgba($white, .5);
+      content: '';
+      opacity: 0;
+      transition: .3s;
     }
 
     &.active{
       &:after{
-        position: absolute;
-        top: 50%;
         right: 0px;
-        width: 4px;
-        height: 100%;
-        background-color: $accent;
-        content: '';
-        transform: translateY(-50%);
+        opacity: 1;
       }
     }
   }

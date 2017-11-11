@@ -7,6 +7,8 @@ section#projectPage{
   box-shadow: 0 0 15px rgba(0,0,0,.3);
   color: $dark;
 
+  -webkit-app-region: drag;
+
   &.transparent{
     background-color: transparent;
     box-shadow: 0 0 0 rgba(0,0,0,0);
@@ -21,6 +23,15 @@ section#projectPage{
 
     justify-content: center;
     align-items: center;
+
+    label{
+      text-align: center;
+
+      small{
+        display: block;
+        opacity: .8;
+      }
+    }
   }
 
   .project-info{
@@ -36,6 +47,7 @@ section#projectPage{
       margin: 0px;
       padding: 0px;
       width:100%;
+      text-transform: uppercase;
     }
 
     .version, .author{

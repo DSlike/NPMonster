@@ -5,10 +5,11 @@ export default class navBar extends React.Component {
     super(props);
     this.state = {
       projects: [
-        {path: '', name: 'testProject'},
-        {path: '', name: 'testProjectWithReallyVeryLongName'},
-        {path: '', name: 'test Project With Really Very Long Name'},
-      ]
+        {path: '/Users/daniel/Git/NPMonster', name: 'testProject'},
+        {path: '/Users/daniel/Git/Daniel-site', name: 'testProjectWithReallyVeryLongName'},
+        {path: '/Users/daniel/Git/Daniel-site', name: 'test Project With Really Very Long Name'},
+      ],
+      active: -1
     };
   }
 
@@ -25,8 +26,10 @@ export default class navBar extends React.Component {
       this.refs.x.webkitdirectory = true;
     }
   }
-
-  openProject(e) {
+  changeActive(i) {
+    this.setState({'active': i});
+  }
+  addProject(e) {
     const project = e.target.files[0];
     var a = this.state.projects;
     a.push({path: project.path, name: project.name});
@@ -35,20 +38,23 @@ export default class navBar extends React.Component {
   render() {
     const projectsList = this.state.projects.map((el,i)=> {
       return (
-        <div className='project-link'
-          onClick={(e)=>this.props.openProject(e, el, i)}
+        <div className={(this.state.active == i ? 'active ' : '') + 'project-link'}
+          onClick={(e)=> {
+            this.props.openProject(e, el, i);
+            this.changeActive(i);
+          }}
           key={i}>{el.name}</div>
       );
     });
     return (<nav>
       <div className='open-form-wrapper'>
         <input type='file'
-          id='openProject'
-          name='openProject'
-          onChange={(е) => this.openProject(е)}
+          id='addProject'
+          name='addProject'
+          onChange={(е) => this.addProject(е)}
           className='open-project'
           ref='x'/>
-        <label htmlFor='openProject'>+ Add project</label>
+        <label htmlFor='addProject'>+ Add project</label>
       </div>
       {projectsList}
     </nav>);

@@ -5,22 +5,27 @@ export default class MainSection extends React.Component {
     super(props);
   }
   render() {
-    let content = (
-      <div className='project-info'>
-        <h1>Project Name</h1>
-        <label className='version'>1.0.0</label>
-        <label className='author'>Somehow</label>
-      </div>
-    );
-    if (!this.props.projectPath) {
+    let content;
+    if (this.props.project) {
+      let p = this.props.project;
+      content = (
+        <div className='project-info'>
+          <h1>{p.name}</h1>
+          <label className='version'>{p.version}</label>
+          <label className='author'>{p.author}</label>
+        </div>
+      );
+    } else {
       content = (
         <div className='empty-content-wrapper'>
-          <label>Please, choose or add some project</label>
+          <label>Please, choose or add some project.
+            <small>in the left side of app</small>
+          </label>
         </div>
       );
     }
     return (
-      <section id='projectPage' className={this.props.projectPath ? '' : 'transparent'}>
+      <section id='projectPage' className={this.props.project ? '' : 'transparent'}>
         {content}
       </section>
     );

@@ -19,7 +19,6 @@ const fs = require('fs');
 cmd.get('npm view node', (err, node) => {
   var v = node.replace(node.match(/[.]{3} \d{3,1000} more items/gi), '');
   eval('v=' + v + '');
-  console.log(v);
 });
 
 function loadPackage(p, callback) {

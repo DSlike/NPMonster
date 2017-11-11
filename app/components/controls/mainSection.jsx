@@ -1,4 +1,5 @@
 import React from 'react';
+import PackagesList from './PackagesList';
 
 export default class MainSection extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export default class MainSection extends React.Component {
     return (
       <section id='projectPage' className={this.props.project ? '' : 'transparent'}>
         {content}
+        <PackagesList project={this.props.project} />
       </section>
     );
   }

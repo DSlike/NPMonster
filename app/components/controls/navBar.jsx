@@ -36,18 +36,20 @@ export default class navBar extends React.Component {
     const projectsList = this.state.projects.map((el,i)=> {
       return (
         <div className='project-link'
-          onClick={(e)=>this.props.openProject(e, el)}
+          onClick={(e)=>this.props.openProject(e, el, i)}
           key={i}>{el.name}</div>
       );
     });
     return (<nav>
-      <input type='file'
-        id='openProject'
-        name='openProject'
-        onChange={(е) => this.openProject(е)}
-        className='open-project'
-        ref='x'/>
-      <label htmlFor='openProject'>+ Add project</label>
+      <div className='open-form-wrapper'>
+        <input type='file'
+          id='openProject'
+          name='openProject'
+          onChange={(е) => this.openProject(е)}
+          className='open-project'
+          ref='x'/>
+        <label htmlFor='openProject'>+ Add project</label>
+      </div>
       {projectsList}
     </nav>);
   }

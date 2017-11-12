@@ -1,14 +1,21 @@
 section#packagesList{
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+    overflow: auto;
+  box-sizing: border-box;
+  margin: 1em auto 0 auto;
+  padding: 0 1em;
   max-width: 600px;
+  max-height: 600px;
   width: 100%;
+
 
   .dependency{
     box-sizing: border-box;
+    margin: 2px 0;
     padding: 1em;
     width:100%;
+    box-shadow: 0 2px 5px rgba(0,0,0, .2);
 
     .version{
       margin: 0 1em;

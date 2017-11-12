@@ -1,6 +1,7 @@
 section#projectPage{
   display: flex;
   flex-direction: column;
+  overflow: auto;
   min-height: 100%;
   width: 100%;
   background-color: rgba($white, .9);

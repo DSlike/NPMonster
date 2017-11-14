@@ -4,9 +4,9 @@ section#projectPage{
   overflow: auto;
   min-height: 100%;
   width: 100%;
-  background-color: rgba($white, .9);
+  // background-color: rgba($white, .9);
   box-shadow: 0 0 15px rgba(0,0,0,.3);
-  color: $dark;
+  color: $accent;
 
   -webkit-app-region: drag;
 
@@ -20,7 +20,7 @@ section#projectPage{
     display: flex;
     width: 100%;
     height: 100%;
-    color:white;
+    color:$accent;
 
     justify-content: center;
     align-items: center;

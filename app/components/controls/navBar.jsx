@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class navBar extends React.Component {
   constructor(props) {
@@ -6,8 +7,8 @@ export default class navBar extends React.Component {
     this.state = {
       projects: [
         {path: '/Users/daniel/Git/NPMonster', name: 'testProject'},
-        {path: '/Users/daniel/Git/Daniel-site', name: 'testProjectWithReallyVeryLongName'},
-        {path: '/Users/daniel/Git/Daniel-site', name: 'test Project With Really Very Long Name'},
+        {path: '/Users/daniel/Git/Daniel-site', name: 'Daniel-site'},
+        {path: '/Users/daniel/Git/Video chat', name: 'Video Chat'},
       ],
       active: -1
     };
@@ -56,6 +57,7 @@ export default class navBar extends React.Component {
           ref='x'/>
         <label htmlFor='addProject'>+ Add project</label>
       </div>
+      <Link to='/test'>Test</Link>
       {projectsList}
     </nav>);
   }

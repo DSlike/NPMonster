@@ -1,6 +1,6 @@
 section#packagesList{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
     overflow: auto;
   box-sizing: border-box;
   margin: 1em auto 0 auto;
@@ -9,18 +9,60 @@ section#packagesList{
   max-height: 600px;
   width: 100%;
 
+  justify-content: space-around;
+  flex-wrap: wrap;
+
 
   .dependency{
+    position: relative;
     box-sizing: border-box;
-    margin: 2px 0;
-    padding: 1em;
-    width:100%;
+    margin: .5em 0;
+    padding: 2em;
+    width: 45%;
     box-shadow: 0 2px 5px rgba(0,0,0, .2);
+
+    &.dev{
+      background-color: $dark;
+      color: $white;
+
+      .delete{
+        background-image: url('../imgs/bin_white.png');
+      }
+    }
+
+    &:hover{
+      .version{
+        font-size: .8em;
+        opacity: .8;
+      }
+      .delete{
+        visibility: visible;
+        opacity: 1;
+      }
+    }
 
     .version{
       margin: 0 1em;
-      font-size: .8em;
-      opacity: .8;
+      font-size: 0em;
+      opacity: 0;
+      transition: .3s;
+    }
+    .delete{
+      position: absolute;
+      top:50%;
+      right: 10px;
+      visibility: hidden;
+      width: 16px;
+      height: 16px;
+      border: none;
+      background-color: transparent;
+      background-image: url('../imgs/bin.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0;
+      cursor: pointer;
+      transition: .3s;
+      transform: translate(0, -50%);
     }
   }
 }

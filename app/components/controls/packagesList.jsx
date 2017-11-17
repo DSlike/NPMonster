@@ -32,6 +32,7 @@ export default class PackagesList extends React.Component {
     }
     return (
       <section id='packagesList'>
+        <div className='add-package'>+ Add package</div>
         {packages}
         {devPackages}
       </section>

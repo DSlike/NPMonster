@@ -10,11 +10,14 @@ export default class MainSection extends React.Component {
     if (this.props.project) {
       let p = this.props.project;
       content = (
-        <div className='project-info'>
-          <h1>{p.name}</h1>
-          <label className='version'>{p.version}</label>
-          <label className='author'>{p.author}</label>
-          <div className='edit'>Edit <label>package.json</label></div>
+        <div>
+          <div className='project-info'>
+            <h1>{p.name}</h1>
+            <label className='version'>{p.version}</label>
+            <label className='author'>{p.author}</label>
+            <div className='edit'>Edit <label>package.json</label></div>
+          </div>
+          <PackagesList project={this.props.project} />
         </div>
       );
     } else {
@@ -27,10 +30,9 @@ export default class MainSection extends React.Component {
       );
     }
     return (
-      <section id='projectPage' className={this.props.project ? '' : 'transparent'}>
+      <main id='projectPage' className={this.props.project ? '' : 'transparent'}>
         {content}
-        <PackagesList project={this.props.project} />
-      </section>
+      </main>
     );
   }
 }

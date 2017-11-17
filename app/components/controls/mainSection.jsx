@@ -14,6 +14,7 @@ export default class MainSection extends React.Component {
           <h1>{p.name}</h1>
           <label className='version'>{p.version}</label>
           <label className='author'>{p.author}</label>
+          <div className='edit'>Edit <label>package.json</label></div>
         </div>
       );
     } else {

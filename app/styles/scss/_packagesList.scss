@@ -18,12 +18,18 @@ section#packagesList{
     box-sizing: border-box;
     margin: .5em 0;
     padding: 2em;
+    min-width: 250px;
+    max-width: 300px;
     width: 45%;
     box-shadow: 0 2px 5px rgba(0,0,0, .2);
 
     &.dev{
       background-color: $dark;
       color: $white;
+
+      .version{
+        color: $white;
+      }
 
       .delete{
         background-image: url('../imgs/bin_white.png');

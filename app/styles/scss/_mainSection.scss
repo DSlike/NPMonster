@@ -59,5 +59,27 @@ section#projectPage{
     .author{
       font-weight: bold;
     }
+    .edit{
+      display: table;
+      margin: 1em 0;
+      padding: .5em 1em;
+      border: 1px solid $dark;
+      border-radius: 2em;
+      background-color: transparent;
+      color:$accent;
+      cursor: pointer;
+      transition: .3s;
+
+      &:hover{
+        box-shadow: -80px 0 0 $accent inset,
+                    80px 0 0 $accent inset;
+        color:$white;
+      }
+
+      label{
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
   }
 }

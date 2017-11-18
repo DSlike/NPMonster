@@ -17,6 +17,17 @@ export default class MainSection extends React.Component {
             <label className='author'>{p.author}</label>
             <div className='edit'>Edit <label>package.json</label></div>
           </div>
+          <div className='project-scripts'>
+            {
+              p.scripts ?
+                Object.keys(p.scripts).map((e, i)=> {
+                  return (
+                    <div className='project-script-button' key={e}>{e}</div>
+                  );
+                })
+              : ''
+            }
+          </div>
           <PackagesList project={this.props.project} />
         </div>
       );

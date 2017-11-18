@@ -1,3 +1,5 @@
+@import 'mixins';
+
 section#packagesList{
   display: flex;
   flex-direction: row;
@@ -22,15 +24,8 @@ section#packagesList{
     border: 1px solid $dark;
     text-align: center;
     font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
 
-    &:hover{
-      box-shadow: //0 7px 15px rgba($dark, .8),
-                  -250px 0 0 $dark inset,
-                  250px 0 0 $dark inset;
-      color:white;
-    }
+    @include buttonHover();
   }
 
   .dependency{

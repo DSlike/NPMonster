@@ -67,7 +67,7 @@ main#projectPage {
 
     .edit {
       display: table;
-      margin: 1em 0;
+      margin: 1em 0 1em auto;
       padding: 0.5em 1em;
       border: 1px solid $dark;
 
@@ -85,15 +85,20 @@ main#projectPage {
     box-sizing: border-box;
     padding: 1em;
 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: baseline;
     flex-wrap: wrap;
 
+    label{
+      opacity: .8;
+      font-weight: bold;
+    }
+
     .project-script-button{
-      text-transform: uppercase;
       margin: 0 .5em;
       padding: .5em 2em;
       border: 1px solid $dark;
+      text-transform: uppercase;
       cursor: pointer;
       transition: .3s;
 

@@ -12,7 +12,8 @@ export default class App extends React.Component {
   openProject(e, p, i) {
     coreInit(p);
     core.getPackageJSON((data) => {
-      this.setState({'project': data});
+      if (data != 'no package')
+        this.setState({'project': data});
     });
   }
   render() {

@@ -3,13 +3,16 @@ const fs = require('fs');
 
 var core = '';
 
-class CORE{
+class CORE {
   constructor(project) {
     this.path = project.path;
   }
   getPackageJSON(callback) {
+    console.log(this.path);
     fs.readFile(`${this.path}/package.json`, 'utf8', (err, data) => {
-      if (!err) {
+      if (err) {
+        callback('no package');
+      } else {
         callback(JSON.parse(data));
       }
     });

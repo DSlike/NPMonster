@@ -8,8 +8,8 @@ export default class MainSection extends React.Component {
   render() {
     let content;
     const self = this;
-    if (this.props.project) {
 
+    if (this.props.project) {
       let p = this.props.project;
       content = (
         <div>
@@ -23,6 +23,7 @@ export default class MainSection extends React.Component {
             </div>
           </div>
           <div className='project-scripts'>
+            <label>Project npm scripts : </label>
             {
               p.scripts ?
                 Object.keys(p.scripts).map((e, i)=> {
@@ -33,7 +34,7 @@ export default class MainSection extends React.Component {
                           >{e}</div>
                   );
                 })
-              : ''
+              : ' here is no npm scripts.'
             }
           </div>
           <PackagesList project={this.props.project} />

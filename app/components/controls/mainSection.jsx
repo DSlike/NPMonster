@@ -7,7 +7,9 @@ export default class MainSection extends React.Component {
   }
   render() {
     let content;
+    const self = this;
     if (this.props.project) {
+
       let p = this.props.project;
       content = (
         <div>
@@ -15,14 +17,20 @@ export default class MainSection extends React.Component {
             <h1>{p.name}</h1>
             <label className='version'>{p.version}</label>
             <label className='author'>{p.author}</label>
-            <div className='edit'>Edit <label>package.json</label></div>
+            <div className='edit'
+                  onClick={()=>core.editPackageJSON()}>
+              Edit <label>package.json</label>
+            </div>
           </div>
           <div className='project-scripts'>
             {
               p.scripts ?
                 Object.keys(p.scripts).map((e, i)=> {
                   return (
-                    <div className='project-script-button' key={e}>{e}</div>
+                    <div className='project-script-button'
+                          key={e}
+                          onClick={()=>core.runScript(p.scripts[e])}
+                          >{e}</div>
                   );
                 })
               : ''

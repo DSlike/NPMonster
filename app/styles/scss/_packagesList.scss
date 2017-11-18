@@ -26,6 +26,7 @@ section#packagesList{
     font-weight: bold;
 
     @include buttonHover();
+    text-transform: uppercase;
   }
 
   .dependency{

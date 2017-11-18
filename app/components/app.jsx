@@ -7,15 +7,15 @@ import MainSection from './controls/mainSection';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {project: ''};
+    this.state = {project: '', path: ''};
   }
   openProject(e, p, i) {
-    loadPackage(p, (data) => {
+    coreInit(p);
+    core.getPackageJSON((data) => {
       this.setState({'project': data});
     });
   }
   render() {
-    console.log(window.location.href);
     return (
       <section id='application'>
         <Nav openProject={(e, p, i)=>this.openProject(e, p, i)} />

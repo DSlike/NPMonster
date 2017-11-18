@@ -90,6 +90,7 @@ main#projectPage {
     flex-wrap: wrap;
 
     .project-script-button{
+      text-transform: uppercase;
       margin: 0 .5em;
       padding: .5em 2em;
       border: 1px solid $dark;

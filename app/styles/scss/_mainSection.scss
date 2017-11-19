@@ -89,9 +89,13 @@ main#projectPage {
     align-items: baseline;
     flex-wrap: wrap;
 
+    &.hidden{
+      display: none;
+    }
+
     label{
-      opacity: .8;
       font-weight: bold;
+      opacity: .8;
     }
 
     .project-script-button{

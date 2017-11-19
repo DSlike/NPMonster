@@ -22,7 +22,7 @@ export default class MainSection extends React.Component {
               Edit <label>package.json</label>
             </div>
           </div>
-          <div className='project-scripts'>
+          <div className={(p.scripts ? '' : 'hidden ') + 'project-scripts' }>
             <label>Project npm scripts : </label>
             {
               p.scripts ?

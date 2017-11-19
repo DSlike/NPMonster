@@ -47,7 +47,7 @@ nav {
     padding: 2em;
     width: 100%;
     background-color: rgba($white, .8);
-    box-shadow: 0 3px 7px rgba($dark, .5);
+    box-shadow: 0 0 7px rgba($dark, .5);
     color: $dark;
     text-transform: uppercase;
     white-space: nowrap;
@@ -55,7 +55,8 @@ nav {
     transition: 0.3s;
 
     &:hover {
-      box-shadow: 0 7px 15px rgba($dark, .8);
+      box-shadow: 0 7px 15px rgba($dark, .2);
+      transform: scale(1.005) translateY(-3px);
 
       &.active:after {
         background-color: $dark;

@@ -29,7 +29,7 @@ class CORE {
   runScript(script) {
     cmd.get(
       `
-        osascript -e 'tell application "Terminal" to do script "cd ${this.path};${script}"'
+        osascript -e 'tell application "Terminal" to do script "cd ${this.path}; ${script}"'
       `
     );
   }

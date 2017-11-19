@@ -5,11 +5,9 @@ export default class navBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: [
-        {path: '/Users/daniel/Git/NPMonster', name: 'testProject'},
-        {path: '/Users/daniel/Git/Daniel-site', name: 'Daniel-site'},
-        {path: '/Users/daniel/Git/Video chat', name: 'Video Chat'},
-      ],
+      projects: (localStorage.projects ?
+                  JSON.parse(localStorage.projects) :
+                  []),
       active: -1
     };
   }
@@ -34,6 +32,7 @@ export default class navBar extends React.Component {
     const project = e.target.files[0];
     var a = this.state.projects;
     a.push({path: project.path, name: project.name});
+    localStorage.projects = JSON.stringify(a);
     this.setState({projects: a});
   }
   render() {

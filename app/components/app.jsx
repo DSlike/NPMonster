@@ -30,6 +30,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-
-// <MainSection project={this.state.project} />

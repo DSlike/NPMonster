@@ -32,6 +32,16 @@ class CORE {
         osascript -e 'tell application "Terminal" to do script "cd ${this.path}; ${script}"'
       `
     );
+    this.sendNotification(`${script} is started in default terminal application.`);
+  }
+  sendNotification(text) {
+    let appNotification = new Notification('NPMonster', {
+      body: text
+    });
+
+    // myNotification.onclick = () => {
+    //   console.log('Notification clicked');
+    // };
   }
 }
 

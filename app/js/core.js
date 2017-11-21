@@ -8,12 +8,18 @@ class CORE {
     this.path = project.path;
   }
   getPackageJSON(callback) {
-    console.log(this.path);
     fs.readFile(`${this.path}/package.json`, 'utf8', (err, data) => {
       if (err) {
         callback('no package');
       } else {
         callback(JSON.parse(data));
+      }
+    });
+  }
+  savePackageJSON(json) {
+    fs.writeFile(`${this.path}/package.json`, json, (err, data) => {
+      if (err) {
+        alert(error);
       }
     });
   }
@@ -33,6 +39,16 @@ class CORE {
       `
     );
     this.sendNotification(`${script} is started in default terminal application.`);
+  }
+  deleteDependency(packageName, packageType) {
+    this.getPackageJSON((data)=> {
+      if (packageType == 'main')
+        delete data.dependencies[packageName];
+      else if (packageType == 'dev')
+        delete data.devDependencies[packageName];
+
+      this.savePackageJSON(JSON.stringify(data));
+    });
   }
   sendNotification(text) {
     let appNotification = new Notification('NPMonster', {

@@ -15,7 +15,8 @@ export default class PackagesList extends React.Component {
             <div className='dependency' key={i}>
               <label className='name'>{e}</label>
               <label className='version'>{d.dependencies[e]}</label>
-              <button className='delete'></button>
+              <button className='delete'
+                onClick={()=>core.deleteDependency(e, 'main')}></button>
             </div>
           );
         });
@@ -25,7 +26,8 @@ export default class PackagesList extends React.Component {
           <div className='dependency dev' key={i}>
             <label className='name'>{e}</label>
             <label className='version'>{d.devDependencies[e]}</label>
-            <button className='delete'></button>
+            <button className='delete'
+              onClick={()=>core.deleteDependency(e, 'dev')}></button>
           </div>
         );
       });

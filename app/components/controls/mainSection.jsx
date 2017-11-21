@@ -4,13 +4,23 @@ import PackagesList from './PackagesList';
 export default class MainSection extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
+  }
+  componentWillReceiveProps(nextProps) {
+    this.state = nextProps;
+    console.log(this.state);
+  }
+  updateProject() {
+    core.getPackageJSON((data)=> {
+      this.setState({project: data});
+    });
   }
   render() {
     let content;
     const self = this;
 
-    if (this.props.project) {
-      let p = this.props.project;
+    if (this.state.project) {
+      let p = this.state.project;
       content = (
         <div>
           <div className='project-info'>
@@ -37,7 +47,9 @@ export default class MainSection extends React.Component {
               : ' here is no npm scripts.'
             }
           </div>
-          <PackagesList project={this.props.project} />
+          <PackagesList
+            project={this.state.project}
+            updateProject={this.updateProject()}/>
         </div>
       );
     } else {
@@ -50,7 +62,7 @@ export default class MainSection extends React.Component {
       );
     }
     return (
-      <main id='projectPage' className={this.props.project ? '' : 'transparent'}>
+      <main id='projectPage' className={this.state.project ? '' : 'transparent'}>
         {content}
       </main>
     );

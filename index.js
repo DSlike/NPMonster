@@ -19,7 +19,7 @@ app.on('ready', function() {
     resizable: true,
     titleBarStyle: 'hidden-inset',
     vibrancy: 'light',
-    icon: path.join(__dirname, 'app/imgs/icon.png'),
+    icon: `./app/imgs/icon.png`,
     title: 'NPMonster'
   });
   mainWindow.loadURL(process.env.URL);

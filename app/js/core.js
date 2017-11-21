@@ -5,7 +5,8 @@ var core = '';
 
 class CORE {
   constructor(project) {
-    this.path = project.path;
+    if (project)
+      this.path = project.path;
   }
   getPackageJSON(callback) {
     fs.readFile(`${this.path}/package.json`, 'utf8', (err, data) => {
@@ -58,6 +59,23 @@ class CORE {
     // myNotification.onclick = () => {
     //   console.log('Notification clicked');
     // };
+  }
+  checkVersions(callback) {
+    cmd.get('npm view node', (err, node) => {
+      var nv = node.replace(/[.]{3} \d{1,100000} more items/gi, '');
+      eval('nv = ' + nv);
+
+      cmd.get('npm view npm', (err, npm) => {
+        var npv = npm.replace(/[.]{3} \d{1,100000} more items/gi, '');
+        eval('npv = ' + npv);
+        console.log(npv);
+
+        let result = {};
+        result.node = nv['dist-tags'].latest == nv.version ? 'ok' : 'update';
+        result.npm = npv['dist-tags'].latest == npv.version ? 'ok' : 'update';
+        callback(result);
+      });
+    });
   }
 }
 

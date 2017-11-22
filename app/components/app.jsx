@@ -10,7 +10,7 @@ export default class App extends React.Component {
     this.state = {project: '', path: ''};
     let c = new CORE();
     c.checkVersions((result) => {
-      console.log(result);
+
     });
   }
   openProject(e, p, i) {

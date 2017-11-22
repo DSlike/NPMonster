@@ -42,14 +42,23 @@ class CORE {
     this.sendNotification(`${script} is started in default terminal application.`);
   }
   deleteDependency(packageName, packageType) {
-    this.getPackageJSON((data)=> {
-      if (packageType == 'main')
-        delete data.dependencies[packageName];
-      else if (packageType == 'dev')
-        delete data.devDependencies[packageName];
-
-      this.savePackageJSON(JSON.stringify(data));
-    });
+    cmd.get(
+      `
+        cd
+        cd ${this.path}
+        npm uninstall ${packageName}
+      `, (err, message) => {
+        console.log(message);
+      }
+    );
+    // this.getPackageJSON((data)=> {
+    //   if (packageType == 'main')
+    //     delete data.dependencies[packageName];
+    //   else if (packageType == 'dev')
+    //     delete data.devDependencies[packageName];
+    //
+    //   this.savePackageJSON(JSON.stringify(data));
+    // });
   }
   sendNotification(text) {
     let appNotification = new Notification('NPMonster', {
@@ -68,7 +77,6 @@ class CORE {
       cmd.get('npm view npm', (err, npm) => {
         var npv = npm.replace(/[.]{3} \d{1,100000} more items/gi, '');
         eval('npv = ' + npv);
-        console.log(npv);
 
         let result = {};
         result.node = nv['dist-tags'].latest == nv.version ? 'ok' : 'update';

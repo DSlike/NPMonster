@@ -73,16 +73,28 @@ class CORE {
     cmd.get('npm view node', (err, node) => {
       var nv = node.replace(/[.]{3} \d{1,100000} more items/gi, '');
       eval('nv = ' + nv);
-
-      cmd.get('npm view npm', (err, npm) => {
-        var npv = npm.replace(/[.]{3} \d{1,100000} more items/gi, '');
-        eval('npv = ' + npv);
-
-        let result = {};
-        result.node = nv['dist-tags'].latest == nv.version ? 'ok' : 'update';
-        result.npm = npv['dist-tags'].latest == npv.version ? 'ok' : 'update';
-        callback(result);
+      console.log(nv);
+      cmd.get('node -v', (err, nodeLocal) => {
+        var nl = nodeLocal.replace('v', '');
+        if (nv['dist-tags'].latest != nl)
+          this.sendNotification(`NodeJS has an update to version ${nv['dist-tags'].latest}`);
       });
+    });
+    cmd.get('npm view npm', (err, npm) => {
+      var npv = npm.replace(/[.]{3} \d{1,100000} more items/gi, '');
+      eval('npv = ' + npv);
+
+      cmd.get('npm -v', (err, npmLocal) => {
+        var nl = nodeLocal.replace('v', '');
+        if (npv['dist-tags'].latest != nl)
+          this.sendNotification(`NPM has an update to version ${npv['dist-tags'].latest}`);
+      });
+
+      // let result = {};
+      // result.node = nv['dist-tags'].latest == nv.version ? 'ok' : 'update';
+      // result.npm = npv['dist-tags'].latest == npv.version ? 'ok' : 'update';
+
+      // callback(result);
     });
   }
 }

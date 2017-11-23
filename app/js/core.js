@@ -39,7 +39,7 @@ class CORE {
         osascript -e 'tell application "Terminal" to do script "cd ${this.path}; ${script}"'
       `
     );
-    this.sendNotification(`${script} is started in default terminal application.`);
+    this.sendNotification(`NPM script is started in default terminal application.`);
   }
   deleteDependency(packageName, packageType) {
     cmd.get(

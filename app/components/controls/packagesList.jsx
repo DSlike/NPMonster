@@ -1,5 +1,7 @@
 import React from 'react';
 
+import AddPackageForm from './AddPackageForm';
+
 export default class PackagesList extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,7 @@ export default class PackagesList extends React.Component {
     }
     return (
       <section id='packagesList'>
+        <AddPackageForm show='hide' />
         <div className='add-package'>+ Add package</div>
         {packages}
         {devPackages}

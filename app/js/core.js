@@ -51,19 +51,11 @@ class CORE {
         console.log(message);
       }
     );
-    // this.getPackageJSON((data)=> {
-    //   if (packageType == 'main')
-    //     delete data.dependencies[packageName];
-    //   else if (packageType == 'dev')
-    //     delete data.devDependencies[packageName];
-    //
-    //   this.savePackageJSON(JSON.stringify(data));
-    // });
   }
   sendNotification(text) {
-    let appNotification = new Notification('NPMonster', {
-      body: text
-    });
+    // let appNotification = new Notification('NPMonster', {
+    //   body: text
+    // });
 
     // myNotification.onclick = () => {
     //   console.log('Notification clicked');
@@ -89,12 +81,6 @@ class CORE {
         if (npv['dist-tags'].latest != nl)
           this.sendNotification(`NPM has an update to version ${npv['dist-tags'].latest}`);
       });
-
-      // let result = {};
-      // result.node = nv['dist-tags'].latest == nv.version ? 'ok' : 'update';
-      // result.npm = npv['dist-tags'].latest == npv.version ? 'ok' : 'update';
-
-      // callback(result);
     });
   }
 }

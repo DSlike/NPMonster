@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddPackageForm from './AddPackageForm';
+import AddPackageForm from './addPackageForm';
 
 export default class PackagesList extends React.Component {
   constructor(props) {

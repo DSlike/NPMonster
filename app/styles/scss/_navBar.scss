@@ -4,14 +4,15 @@ nav {
   display: flex;
   overflow: auto;
   padding: 36px 2em 2em;
+  max-height: 100vh;
   width: 500px;
-  height: 100vh;
   // border-right: 1px solid black;
+  flex-direction: column;
   transition: 0.3s;
 
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  // justify-content: flex-start;
+  // align-items: flex-start;
+  // flex-wrap: wrap;
 
   .open-form-wrapper {
   width: 100%;

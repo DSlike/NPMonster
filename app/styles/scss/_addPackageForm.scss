@@ -2,6 +2,47 @@
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 2;
+  width: 300px;
   height: 100vh;
+  border: 1px solid red;
   background-color: white;
+
+  .controls-wrapper{
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    justify-content: space-around;
+    input[type=checkbox]{
+      position: relative;
+      display: none;
+
+      &+label{
+        &:before{
+          position: absolute;
+          display: block;
+          width: 40px;
+          height: 20px;
+          border-radius: 20px;
+          background-color: $dark;
+          content:'';
+        }
+        &:after{
+          position: relative;
+          top: 1px;
+          left: 1px;
+          display: block;
+          width: 18px;
+          height:18px;
+          border-radius: 20px;
+          background-color: $white;
+          content: '';
+        }
+      }
+      &:checked + label:after{
+        left: 21px;
+      }
+    }
+  }
 }

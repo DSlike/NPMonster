@@ -5,6 +5,10 @@ import AddPackageForm from './addPackageForm';
 export default class PackagesList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {showAdding: false};
+  }
+  showAddingForm() {
+    this.setState({showAdding: true});
   }
   render() {
     let packages = '';
@@ -36,8 +40,11 @@ export default class PackagesList extends React.Component {
     }
     return (
       <section id='packagesList'>
-        <AddPackageForm show='hide' />
-        <div className='add-package'>+ Add package</div>
+        <AddPackageForm show={
+            this.state.showAdding == true ? '' : 'hidden'
+          } />
+        <div className='add-package'
+          onClick={()=>this.showAddingForm()}>+ Add package</div>
         {packages}
         {devPackages}
       </section>

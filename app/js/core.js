@@ -53,11 +53,14 @@ class CORE {
     );
   }
   sendNotification(text) {
-    // let appNotification = new Notification('NPMonster', {
-    //   body: text
-    // });
+    Notification.requestPermission();
 
-    // myNotification.onclick = () => {
+    let appNotification = new Notification('NPMonster', {
+      body: text,
+      requireInteraction: true
+    });
+
+    // appNotification.onclick = () => {
     //   console.log('Notification clicked');
     // };
   }
@@ -65,9 +68,9 @@ class CORE {
     cmd.get('npm view node', (err, node) => {
       var nv = node.replace(/[.]{3} \d{1,100000} more items/gi, '');
       eval('nv = ' + nv);
-      console.log(nv);
       cmd.get('node -v', (err, nodeLocal) => {
         var nl = nodeLocal.replace('v', '');
+        console.log(nv['dist-tags'].latest, nl);
         if (nv['dist-tags'].latest != nl)
           this.sendNotification(`NodeJS has an update to version ${nv['dist-tags'].latest}`);
       });
@@ -77,7 +80,7 @@ class CORE {
       eval('npv = ' + npv);
 
       cmd.get('npm -v', (err, npmLocal) => {
-        var nl = nodeLocal.replace('v', '');
+        var nl = npmLocal.replace('v', '').replace('\n', '');
         if (npv['dist-tags'].latest != nl)
           this.sendNotification(`NPM has an update to version ${npv['dist-tags'].latest}`);
       });

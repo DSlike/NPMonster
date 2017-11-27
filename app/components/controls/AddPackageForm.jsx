@@ -8,12 +8,14 @@ export default class AddPackageForm extends React.Component {
     return (
       <div id='addPackageForm' className={this.props.show}>
         <div className='controls-wrapper'>
-          <input type='text' className='package-name' />
+          <input type='text'
+            placeholder='Dependency Name'
+            className='package-name' />
           <input type='checkbox'
             className='dev-dependency'
             name='devDependency'
             id='devDependency' />
-          <label htmlFor='devDependency'></label>
+          <label htmlFor='devDependency'>Dev Dependency</label>
           <button>Add</button>
         </div>
       </div>

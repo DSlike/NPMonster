@@ -4,6 +4,14 @@ export default class AddPackageForm extends React.Component {
   constructor(props) {
     super(props);
   }
+  installDependency() {
+    let name = document.getElementsByClassName('package-name')[0].value;
+    let dev = document.getElementsByClassName('dev-dependency')[0].checked;
+    this.props.updateMessage(`Installing ${name}`, true);
+    core.installDependency(name, dev, ()=> {
+      this.props.updateMessage('', false);
+    });
+  }
   render() {
     return (
       <div id='addPackageForm' className={this.props.show}>
@@ -16,7 +24,7 @@ export default class AddPackageForm extends React.Component {
             name='devDependency'
             id='devDependency' />
           <label htmlFor='devDependency'>Dev Dependency</label>
-          <button>Add</button>
+          <button onClick={()=> {this.installDependency();}}>Add</button>
         </div>
       </div>
     );

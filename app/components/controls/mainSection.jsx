@@ -4,11 +4,16 @@ import PackagesList from './PackagesList';
 export default class MainSection extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {showMessage: false, messageText: ''};
   }
   componentWillReceiveProps(nextProps) {
     this.state = nextProps;
-    console.log(this.state);
+  }
+  updateMessage(text, show) {
+    this.setState({
+      showMessage: show,
+      messageText: (text ? text : this.state.messageText)
+    });
   }
   updateProject() {
     core.getPackageJSON((data)=> {
@@ -49,7 +54,12 @@ export default class MainSection extends React.Component {
           </div>
           <PackagesList
             project={this.state.project}
-            updateProject={this.updateProject()}/>
+            updateProject={this.updateProject()}
+            updateMessage={(text, show)=> {this.updateMessage(text, show);}}/>
+          <div
+            className={'message' + (this.state.showMessage ? '' : ' hidden')}>
+            {this.state.messageText}
+          </div>
         </div>
       );
     } else {

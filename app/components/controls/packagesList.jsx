@@ -8,7 +8,13 @@ export default class PackagesList extends React.Component {
     this.state = {showAdding: false};
   }
   showAddingForm() {
-    this.setState({showAdding: true});
+    this.setState({showAdding: !this.state.showAdding});
+  }
+  deleteDependency(name) {
+    this.props.updateMessage(`Removing ${name}`, true);
+    core.deleteDependency(name, ()=> {
+      this.props.updateMessage(name, false);
+    });
   }
   render() {
     let packages = '';
@@ -22,7 +28,10 @@ export default class PackagesList extends React.Component {
               <label className='name'>{e}</label>
               <label className='version'>{d.dependencies[e]}</label>
               <button className='delete'
-                onClick={()=>core.deleteDependency(e, 'main')}></button>
+                onClick={()=> {
+                  this.deleteDependency(e);
+                }}
+                ></button>
             </div>
           );
         });
@@ -33,14 +42,18 @@ export default class PackagesList extends React.Component {
             <label className='name'>{e}</label>
             <label className='version'>{d.devDependencies[e]}</label>
             <button className='delete'
-              onClick={()=>core.deleteDependency(e, 'dev')}></button>
+              onClick={()=> {
+                this.deleteDependency(e);
+              }}></button>
           </div>
         );
       });
     }
     return (
       <section id='packagesList'>
-        <AddPackageForm show={
+        <AddPackageForm
+          updateMessage = {this.props.updateMessage}
+          show={
             this.state.showAdding == true ? '' : 'hidden'
           } />
         <div className='add-package'

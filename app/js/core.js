@@ -5,8 +5,13 @@ var core = '';
 
 class CORE {
   constructor(project) {
-    if (project)
+    if (project) {
       this.path = project.path;
+      this.projectPathCommand = `
+        cd
+        cd ${project.path}
+      `;
+    }
   }
   getPackageJSON(callback) {
     fs.readFile(`${this.path}/package.json`, 'utf8', (err, data) => {
@@ -22,6 +27,12 @@ class CORE {
       if (err) {
         alert(error);
       }
+    });
+  }
+  installDependency(name, dev, callback) {
+    const key = '-save' + (dev ? '-dev' : '');
+    this.runCommand(`npm install ${name} ${key}`, (err, data, stderr)=> {
+      callback();
     });
   }
   editPackageJSON() {
@@ -41,28 +52,16 @@ class CORE {
     );
     this.sendNotification(`NPM script is started in default terminal application.`);
   }
-  deleteDependency(packageName, packageType) {
-    cmd.get(
-      `
-        cd
-        cd ${this.path}
-        npm uninstall ${packageName}
-      `, (err, message) => {
-        console.log(message);
-      }
-    );
+  deleteDependency(packageName, callback) {
+    this.runCommand(`npm uninstall ${packageName}`, (err, data, stderr)=> {
+      callback();
+    });
   }
   sendNotification(text) {
-    Notification.requestPermission();
-
     let appNotification = new Notification('NPMonster', {
       body: text,
       requireInteraction: true
     });
-
-    // appNotification.onclick = () => {
-    //   console.log('Notification clicked');
-    // };
   }
   checkVersions(callback) {
     cmd.get('npm view node', (err, node) => {
@@ -70,7 +69,6 @@ class CORE {
       eval('nv = ' + nv);
       cmd.get('node -v', (err, nodeLocal) => {
         var nl = nodeLocal.replace('v', '');
-        console.log(nv['dist-tags'].latest, nl);
         if (nv['dist-tags'].latest != nl)
           this.sendNotification(`NodeJS has an update to version ${nv['dist-tags'].latest}`);
       });
@@ -85,6 +83,14 @@ class CORE {
           this.sendNotification(`NPM has an update to version ${npv['dist-tags'].latest}`);
       });
     });
+  }
+  runCommand(commandString, callback) {
+    cmd.get(`
+      ${this.projectPathCommand}
+      ${commandString}
+      `, (err, data, stderr)=> {
+        callback(err, data, stderr);
+      });
   }
 }
 

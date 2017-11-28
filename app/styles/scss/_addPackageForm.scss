@@ -2,21 +2,20 @@
 
 #addPackageForm{
   position: absolute;
-  top: 0;
-  right: 0;
+  left: 0px;
   z-index: 2;
   box-sizing: border-box;
   padding: 1em;
   width: 300px;
-  height: 100vh;
-  background-color: $white;
-  box-shadow: -5px 0 15px rgba($dark, .5);
+  background-color: rgba($dark, .9);
+  box-shadow: 0 5px 15px rgba($dark, .5);
   transition: .3s;
+  transform: translateY(-100%);
 
   &.hidden{
-    right: -350px;
-    // visibility: hidden;
-    // opacity: 0;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-150%);
   }
 
   .controls-wrapper{
@@ -28,16 +27,17 @@
     align-items: center;
     input[type=text]{
       margin-bottom: 1em;
-      padding: .5em;
+      padding: 1em;
       width: 100%;
-      border: 1px solid $dark;
+      border: 1px solid $white;
       border-radius: 0px;
     }
     button{
-      padding: .5em 1em;
-      border: 1px solid $dark;
+      padding: 1em 2em;
+      border: 1px solid $white;
       border-radius: 0px;
-      color:$dark;
+      color:$white;
+      text-transform: uppercase;
       font-weight: bold;
       cursor: pointer;
       transition: .3s;
@@ -54,6 +54,7 @@
         position: relative;
         margin: 1em;
         width: 100px;
+        color: $white;
         &:before{
           position: absolute;
           left: -50px;
@@ -89,7 +90,7 @@
           left: -29px;
         }
         &:before{
-          background-color: $dark;
+          background-color: #71F79F;
         }
       }
     }

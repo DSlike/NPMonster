@@ -117,15 +117,19 @@ main#projectPage {
     padding: 1em;
     padding-right: 25px;
     border-radius: 2em;
-    background-color: rgba($dark, .9);
-    box-shadow: 0 5px 15px rgba($dark, .5);
+    background-color: $dark;
+    // box-shadow: 0 5px 15px rgba($dark, .5);
     color: $white;
     transition: .3s;
 
     &.hidden{
-      right: -10px;
+      // right: -10px;
       visibility: hidden;
       opacity: 0;
+
+      &:after{
+        display: none;
+      }
     }
     &:after{
       position: absolute;

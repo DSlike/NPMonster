@@ -24,7 +24,10 @@ export default class AddPackageForm extends React.Component {
             name='devDependency'
             id='devDependency' />
           <label htmlFor='devDependency'>Dev Dependency</label>
-          <button onClick={()=> {this.installDependency();}}>Add</button>
+          <button onClick={()=> {
+              this.installDependency();
+              this.props.closeForm();
+            }}>Add</button>
         </div>
       </div>
     );

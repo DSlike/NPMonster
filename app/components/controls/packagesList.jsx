@@ -53,6 +53,7 @@ export default class PackagesList extends React.Component {
       <section id='packagesList'>
         <AddPackageForm
           updateMessage = {this.props.updateMessage}
+          closeForm={()=>this.showAddingForm()}
           show={
             this.state.showAdding == true ? '' : 'hidden'
           } />

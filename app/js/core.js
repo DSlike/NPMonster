@@ -1,6 +1,8 @@
 const cmd = require('node-cmd');
 const fs = require('fs');
 
+const os = require('os').type();
+
 var core = '';
 
 class CORE {
@@ -11,6 +13,9 @@ class CORE {
         cd
         cd ${project.path}
       `;
+      if (os == 'Darwin') {
+        this.system = new Darwin(this.path);
+      }
     }
   }
   getPackageJSON(callback) {
@@ -46,9 +51,7 @@ class CORE {
   }
   runScript(script) {
     cmd.get(
-      `
-        osascript -e 'tell application "Terminal" to do script "cd ${this.path}; ${script}"'
-      `
+      this.system.runFromTerminal(script)
     );
     this.sendNotification(`NPM script is started in default terminal application.`);
   }
@@ -96,4 +99,15 @@ class CORE {
 
 function coreInit(p) {
   core = new CORE(p);
+}
+
+class Darwin{
+  constructor(path) {
+    this.path = path;
+  }
+  runFromTerminal(script) {
+    return `
+      osascript -e 'tell application "Terminal" to do script "cd; cd ${this.path}; ${script}"'
+    `;
+  }
 }

@@ -2,12 +2,12 @@
 
 nav {
   display: flex;
+  // border-right: 1px solid black;
+  flex-direction: column;
   overflow: auto;
   padding: 36px 2em 2em;
   max-height: 100vh;
   width: 500px;
-  // border-right: 1px solid black;
-  flex-direction: column;
   transition: 0.3s;
 
   // justify-content: flex-start;
@@ -59,7 +59,7 @@ nav {
       transform: scale(1.005) translateY(-3px);
 
       &.active:after {
-        background-color: $dark;
+        background-color: $accent;
       }
     }
 
@@ -69,7 +69,7 @@ nav {
       right: -10px;
       width: 5px;
       height: 100%;
-      background-color: rgba($dark, .5);
+      background-color: rgba($accent, .5);
       content: '';
       opacity: 0;
       transition: 0.3s;

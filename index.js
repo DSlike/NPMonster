@@ -18,7 +18,7 @@ app.on('ready', function() {
     show: true,
     resizable: true,
     titleBarStyle: 'hidden-inset',
-    vibrancy: 'light',
+    vibrancy: 'dark',
     icon: `./app/imgs/icon.png`,
     title: 'NPMonster'
   });

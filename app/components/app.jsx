@@ -19,8 +19,9 @@ export default class App extends React.Component {
     });
   }
   render() {
+    const theme = localStorage.theme == 'dark' ? 'dark' : 'light';
     return (
-      <section id='application'>
+      <section id='application' className={theme}>
         <Nav openProject={(e, p, i)=>this.openProject(e, p, i)} />
         <Switch>
             <Route path='' render = {(props)=>(

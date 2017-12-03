@@ -2,6 +2,7 @@ const cmd = require('node-cmd');
 const fs = require('fs');
 
 const os = require('os').type();
+console.log(os);
 
 var core = '';
 

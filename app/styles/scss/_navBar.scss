@@ -54,12 +54,34 @@ nav {
     cursor: pointer;
     transition: 0.3s;
 
+    .remove{
+      position: absolute;
+      top:50%;
+      right: 10px;
+      visibility: hidden;
+      width: 16px;
+      height: 16px;
+      border: none;
+      background-color: transparent;
+      background-image: url('../imgs/bin.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0;
+      cursor: pointer;
+      transition: .3s;
+      transform: translate(0, -50%);
+    }
+
     &:hover {
       box-shadow: 0 7px 15px rgba($dark, .2);
       transform: scale(1.005) translateY(-3px);
 
       &.active:after {
         background-color: $accent;
+      }
+      .remove{
+        visibility: visible;
+        opacity:1;
       }
     }
 

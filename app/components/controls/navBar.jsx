@@ -28,6 +28,18 @@ export default class navBar extends React.Component {
   changeActive(i) {
     this.setState({'active': i});
   }
+  removeProject(e, el){
+    e.preventDefault();
+    e.stopPropagation();
+    let projects = JSON.parse(localStorage.projects);
+    projects.map((e,i)=>{
+      if(e.name == el.name && e.path == el.path)
+        projects.splice(i, 1);
+    });
+    localStorage.projects = JSON.stringify(projects);
+    this.setState({projects: projects});
+  }
+
   addProject(e) {
     const project = e.target.files[0];
     var a = this.state.projects;
@@ -36,6 +48,7 @@ export default class navBar extends React.Component {
     this.setState({projects: a});
   }
   render() {
+    console.log(this.state.projects);
     const projectsList = this.state.projects.map((el,i)=> {
       return (
         <div className={(this.state.active == i ? 'active ' : '') + 'project-link'}
@@ -43,7 +56,13 @@ export default class navBar extends React.Component {
             this.props.openProject(e, el, i);
             this.changeActive(i);
           }}
-          key={i}>{el.name}</div>
+          key={i}>
+          {el.name}
+          <div
+            onClick={(e)=>this.removeProject(e, el)}
+            className="remove">
+          </div>
+        </div>
       );
     });
     return (<nav>

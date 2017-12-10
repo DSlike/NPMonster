@@ -1,12 +1,15 @@
 {
-  "name": "npmonster",
+  "name": "NPMonster",
   "version": "1.0.0",
   "description": "GUI client for NodeJS packages management",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp watchDebug",
-    "build": "gulp productionMode"
+    "build": "gulp productionMode",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=app/imgs/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=app/imgs/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=app/imgs/icon.png --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",
@@ -14,7 +17,9 @@
   },
   "keywords": [
     "NPM",
-    "NodeJS"
+    "NodeJS",
+    "ElectronApp",
+    "Desktop"
   ],
   "author": "Daniel Votintsev",
   "license": "ISC",

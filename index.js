@@ -20,7 +20,8 @@ app.on('ready', function() {
     titleBarStyle: 'hidden-inset',
     vibrancy: 'dark',
     icon: `./app/imgs/icon.png`,
-    title: 'NPMonster'
+    title: 'NPMonster',
+    icon: path.join(__dirname, 'app/imgs/icon.png')
   });
   mainWindow.loadURL(process.env.URL);
 

@@ -1,2 +1,5 @@
 # NPMonster
-GUI client for Node packages management.
+
+A **GUI** client for **NPM**.
+
+[GitHub Logo](/images/logo.png)

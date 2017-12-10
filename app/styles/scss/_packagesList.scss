@@ -4,12 +4,10 @@ section#packagesList{
   position: relative;
   display: flex;
   flex-direction: row;
-    // overflow: auto;
   box-sizing: border-box;
   margin: 1em auto 0 auto;
   padding: 0 1em;
   max-width: 600px;
-  // max-height: 600px;
   width: 100%;
 
   justify-content: space-around;
@@ -38,11 +36,13 @@ section#packagesList{
     min-width: 250px;
     max-width: 300px;
     width: 45%;
-    box-shadow: 0 2px 5px rgba(0,0,0, .2);
+    background-color: $dependencyBackground;
+    box-shadow: $dependencyShadow;
+    color: $dependencyColor;
 
     &.dev{
-      background-color: $dark;
-      color: $white;
+      background-color: $dev_dependencyBackground;
+      color: $dev_dependencyColor;
 
       .version{
         color: $white;

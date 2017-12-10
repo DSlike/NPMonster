@@ -3,3 +3,5 @@
 /sass-cache/
 .js*
 /release-builds/
+/githubPages/config.rb
+/githubPages/.sass-cache

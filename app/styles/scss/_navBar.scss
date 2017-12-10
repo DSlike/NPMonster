@@ -2,20 +2,15 @@
 
 nav {
   display: flex;
-  // border-right: 1px solid black;
   flex-direction: column;
   overflow: auto;
-  padding: 36px 2em 2em;
+  padding: $navPadding;
   max-height: 100vh;
-  width: 500px;
+  width: $navWidth;
   transition: 0.3s;
 
-  // justify-content: flex-start;
-  // align-items: flex-start;
-  // flex-wrap: wrap;
-
   .open-form-wrapper {
-  width: 100%;
+    width: 100%;
     input[type="file"] {
       display: none;
       visibility: hidden;
@@ -26,7 +21,6 @@ nav {
         padding: 1em;
         width: 100%;
         height: 100%;
-        background-color: $white;
         text-align: center;
         text-transform: uppercase;
 
@@ -46,9 +40,9 @@ nav {
     margin: 0.5em 0;
     padding: 2em;
     width: 100%;
-    background-color: rgba($white, .8);
-    box-shadow: 0 0 7px rgba($dark, .5);
-    color: $dark;
+    background-color: $projectBackground;
+    box-shadow: projectShadow;
+    color: $projectColor;
     text-transform: uppercase;
     white-space: nowrap;
     cursor: pointer;
@@ -77,7 +71,7 @@ nav {
       transform: scale(1.005) translateY(-3px);
 
       &.active:after {
-        background-color: $accent;
+        background-color: $projectActiveHoverIndicatorColor;
       }
       .remove{
         visibility: visible;
@@ -91,7 +85,7 @@ nav {
       right: -10px;
       width: 5px;
       height: 100%;
-      background-color: rgba($accent, .8);
+      background-color: $projectActiveIndicatorColor;
       content: '';
       opacity: 0;
       transition: 0.3s;

@@ -1,4 +1,41 @@
+//Main pallete
 $dark: #424B54;
 $accent: #70A9A1;
 $white: #FFFFFF;
 $gray: #EAEAEA;
+//Add package form
+$addPackageFormBackground: rgba($dark, .9);
+$addPackageFormShadow: 0 5px 15px rgba($dark, .5);
+//Project page
+$projectPageColor: $dark;
+$projectPageBackgroundColor: $white;
+$emptyProjectPageColor: $white;
+
+$projectAuthorColor: rgba($dark, .5);
+$projectVersionColor: rgba($dark, .5);
+//Installing/Removing message
+$messageBackground: $accent;
+$messageColor: $white;
+$messageShadow: 0 5px 15px rgba($dark, .5);
+//Navigation
+$navPadding: 36px 2em 2em;
+$navWidth: 500px;
+
+$projectColor: $dark;
+$projectBackground: rgba($white, .8);
+$projectShadow: 0 0 7px rgba($dark, .5);
+$projectHoverShadow: 0 7px 15px rgba($dark, .2);
+$projectActiveIndicatorColor: rgba($accent, .8);
+$projectActiveHoverIndicatorColor: $accent;
+//Button
+$buttonColor: $dark;
+$buttonBackground: $white;
+$buttonHoverColor: $white;
+$buttonHoverbackground: $dark;
+//Dependencies list
+$dependencyShadow: 0 2px 5px rgba(0,0,0, .2);
+$dependencyColor: $dark;
+$dependencyBackground: $white;
+
+$dev_dependencyColor: $white;
+$dev_dependencyBackground: $dark;

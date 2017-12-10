@@ -1,11 +1,11 @@
 @mixin buttonHover(){
-  background-color: $white;
-  color: $dark;
+  background-color: $buttonBackground;
+  color: $buttonColor;
   cursor: pointer;
   transition: .3s;
 
   &:hover{
-    background-color: $dark;
-    color:white;
+    background-color: $buttonHoverbackground;
+    color:$buttonHoverColor;
   }
 }

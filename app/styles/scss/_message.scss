@@ -1,0 +1,43 @@
+.message{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 5;
+  padding: 1em;
+  padding-right: 25px;
+  border-radius: 2em;
+  background-color: $messageBackground;
+  box-shadow: $messageShadow;
+  color: $messageColor;
+  transition: .3s;
+
+  &.hidden{
+    // right: -10px;
+    visibility: hidden;
+    opacity: 0;
+
+    &:after{
+      display: none;
+    }
+  }
+  &:after{
+    position: absolute;
+    top:50%;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid white;
+    border-top: 2px solid transparent;
+    border-radius: 100%;
+    content: '';
+    animation: rotate 1s infinite linear;
+  }
+  @keyframes rotate{
+    0%{
+      transform: translateY(-50%) rotate(0deg);
+    }
+    100%{
+      transform: translateY(-50%) rotate(360deg);
+    }
+  }
+}
